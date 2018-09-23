@@ -1,11 +1,11 @@
 trait Functor: T[A] {
-    function fmap[B](f: (A) -> T[B], v: T[A]): T[B];
+    function fmap[B](f: (A) -> B, v: T[A]): T[B];
 }
 
 implement Functor for Option {
-    function fmap[B](f: (A) -> Option[B], v: Option[A]): Option[B] {
+    function fmap[B](f: (A) -> B, v: Option[A]): Option[B] {
         match v {
-            Some(x): f(x);
+            Some(x): Some(f(x));
             None: None;
         }
     }
